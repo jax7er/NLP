@@ -6,9 +6,8 @@ from os.path import basename
 
 
 def cmd(text: str) -> str:
-    extracted_speech_marks = text.split("\"")
     extracted_tokens = []
-    for i, text in enumerate(extracted_speech_marks):
+    for i, text in enumerate(text.split("\"")):
         if i % 2 == 0:
             extracted_tokens.extend(text.split())
         else:
@@ -94,7 +93,8 @@ def main():
 if __name__ == "__main__":
     try:
         main()
+        print(f"Finished")
     except Exception as e:
-        print(e)
+        print(f"Failed with error:\n{e}")
     finally:
-        input("Finished, press <Enter> to exit")
+        input("Press <Enter> to exit")
